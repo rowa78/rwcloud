@@ -21,7 +21,7 @@ temporarily enable port 6443 on rancher node
 ufw allow 6443
 ```
 
-install cert-manager
+## install cert-manager
 
 ```
 # Add the Jetstack Helm repository
@@ -49,7 +49,7 @@ wait for valid certificate
 
 k --kubeconfig rke2.yaml -n cattle-system get certificate
 
-install rancher 
+## install rancher 
 
 ```
 helm --kubeconfig rke2.yaml install rancher rancher-latest/rancher \
