@@ -1,1 +1,14 @@
-dns_server_ip: 192.168.0.7
+admin_email: mail@ronnywalter.de
+notifications_email: mail@ronnywalter.de
+
+ufw_rules: 
+  - { port: 22, rule: allow }
+  - { port: 80, rule: allow }
+  - { port: 443, rule: allow }
+#  - { port: 11111, rule: allow }
+#  - { port: 11112, rule: allow }
+  - { port: 51820, rule: allow, proto: udp }
+#  - { from_ip: 10.0.0.0/24, rule: allow}
+  - { direction: in, interface: wg0, rule: allow}
+#- { direction: in, interface: ens10, rule: allow}
+  - { direction: in, interface: docker0, rule: allow}

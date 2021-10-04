@@ -1,0 +1,78 @@
+---
+# tasks file for ronnywalter.postfixrelay
+# see https://github.com/vitobotta/ansible-postfix-role
+
+- name: Uninstall ssmtp
+  package:
+    name: ssmtp
+    state: absent
+
+- name: Install Postfix
+  package:
+    name: 
+      postfix
+    state: present
+
+- name: Install libsasl
+  package:
+    name: libsasl2-modules
+    state: present
+
+- name: Install mailx
+  package:
+    name: bsd-mailx
+    state: present
+
+- name: Configure Postfix
+  template:
+    src: main.cf
+    dest: /etc/postfix/main.cf
+  notify: Reload Postfix
+
+- name: Set up SMTP authentication
+  template:
+    src: sasl_passwd
+    dest: /etc/postfix/sasl_passwd
+  notify: Reload Postfix
+
+- name: Set canonical sender email address
+  template:
+    src: sender_canonical_maps
+    dest: /etc/postfix/sender_canonical_maps
+  notify: Reload Postfix
+
+- name: Set header checks
+  template:
+    src: header_check
+    dest: /etc/postfix/header_check
+  notify: Reload Postfix
+
+- name: Create /etc/mailname
+  copy:
+    content: "{{ smtp_hostname }}"
+    dest: /etc/mailname
+  notify: Reload Postfix
+
+- name: Create map for SMTP relay auth
+  command: postmap /etc/postfix/sasl_passwd
+  notify: Reload Postfix
+
+- name: Create mail aliases
+  template:
+    src: aliases
+    dest: /etc/aliases
+  notify: Reload Postfix
+
+- name: Refresh aliases
+  command: newaliases
+
+- name: Ensure Postfix service is running
+  service:
+    name: postfix
+    state: started
+    enabled: yes
+
+- name: Ensure crontab jobs send notifications to admin
+  cronvar:
+    name: MAILTO
+    value: "{{ notifications_email }}"

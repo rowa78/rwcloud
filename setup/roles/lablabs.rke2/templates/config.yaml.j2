@@ -1,0 +1,34 @@
+node-ip: {{ internal_ip }} 
+node-external-ip: {{ external_ip }} 
+
+tls-san:
+  - cluster.local
+  - 127.0.0.1
+  - vps-1.rwcloud.org
+  - vps-2.rwcloud.org
+  - vps-3.rwcloud.org
+  - {{ rke2_api_ip }}
+
+{% if active_server is defined %}
+server: https://{{ rke2_api_ip }}:9345
+{% endif %}
+token: {{ rke2_token }}
+{% if ansible_fqdn in groups['masters'] %}
+{% if rke2_server_taint %}
+node-taint:
+  - "CriticalAddonsOnly=true:NoExecute"
+{% endif %}
+{% endif %}
+{% if rke2_disable and ( inventory_hostname|string() in groups['masters'] ) %}
+disable: {{ rke2_disable }}
+{% endif %}
+{% if rke2_kube_apiserver_args is defined and ansible_fqdn in groups['masters'] %}
+kube-apiserver-arg: {{ rke2_kube_apiserver_args}}
+{% endif %}
+{% if ( k8s_node_label is defined ) %}
+node-label: 
+{% for label in k8s_node_label %}
+  - {{ label }}
+{% endfor %}
+{% endif %}
+snapshotter: {{ rke2_snapshooter }}

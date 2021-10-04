@@ -1,0 +1,3 @@
+root: {{ notifications_email }}
+postmaster:    root
+monit: root

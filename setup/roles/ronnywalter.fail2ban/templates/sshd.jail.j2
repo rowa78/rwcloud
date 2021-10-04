@@ -1,0 +1,10 @@
+[sshd]
+enabled = true
+port = 22
+destemail = {{ admin_email }}
+sender = {{ notifications_email }}
+sendername = Fail2ban
+mta = sendmail
+action = %(action_)s
+maxretry = 3
+bantime = 86400
