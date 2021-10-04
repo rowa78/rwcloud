@@ -4,3 +4,6 @@ helm:
   chart: longhorn
   repo: https://charts.rancher.io
   version: 100.0.0+up1.1.2
+
+dependsOn:
+  - name: longhorn-fleet-infra-longhorn-longhorn-crd
