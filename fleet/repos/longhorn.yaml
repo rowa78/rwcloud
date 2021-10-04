@@ -76,3 +76,7 @@ spec:
   # more information.
   #
   # targets: ...
+targets:
+  # The name of target. This value is largely for display and logging.
+  # If not specified a default name of the format "target000" will be used
+  - name: prod
