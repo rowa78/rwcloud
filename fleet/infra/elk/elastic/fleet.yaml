@@ -1,0 +1,9 @@
+defaultNamespace: elastic
+helm:
+  releaseName: elasticsearch
+  chart: elasticsearch
+  repo: https://helm.elastic.co
+  version: 7.15.0
+
+dependsOn:
+  - name: longhorn-fleet-infra-longhorn-longhorn-deployment
