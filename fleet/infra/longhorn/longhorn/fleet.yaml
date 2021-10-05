@@ -9,6 +9,12 @@ helm:
       backupTarget: 's3://longhorn@us-east-1/'
       backupTargetCredentialSecret: minio-secrets
       defaultReplicaCount: 2
-
+    resources:   
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
 dependsOn:
   - name: longhorn-fleet-infra-longhorn-longhorn-crd
