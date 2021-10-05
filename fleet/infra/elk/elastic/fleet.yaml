@@ -4,6 +4,13 @@ helm:
   chart: elasticsearch
   repo: https://helm.elastic.co
   version: 7.15.0
-
+  values:
+    resources:
+      requests:
+        cpu: "500m"
+        memory: "2Gi"
+      limits:
+        cpu: "1000m"
+        memory: "2Gi"
 dependsOn:
   - name: longhorn-fleet-infra-longhorn-longhorn-deployment
