@@ -4,3 +4,16 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-monitoring
   version: 100.0.0+up16.6.0
+
+diff:
+  comparePatches:
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: MutatingWebhookConfiguration
+      name: rancher-monitoring-admission
+      operations:
+        - { 'op': 'remove', 'path': '/webhooks/0/clientConfig' }
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: rancher-monitoring-admission
+      operations:
+        - { 'op': 'remove', 'path': '/webhooks/0/clientConfig' }
