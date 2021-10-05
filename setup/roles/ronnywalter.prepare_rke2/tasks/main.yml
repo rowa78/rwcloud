@@ -56,5 +56,5 @@
 
 - name: Restart service rke2, in all cases
   ansible.builtin.service:
-    name: rke2-server
+    name: rke2-{{ rke2_type }}
     state: restarted

@@ -1,0 +1,9 @@
+- name: Prepare workload-cluster
+  serial: 1
+  hosts: nodes
+  vars:
+    rke2_version: v1.21.5+rke2r1
+    rke2_custom_manifests: manifests/
+    rke2_token: ljkhfewiu32ni439
+  roles:     
+     - ronnywalter.prepare_rke2

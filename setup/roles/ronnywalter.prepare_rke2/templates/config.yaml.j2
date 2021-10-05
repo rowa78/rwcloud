@@ -1,5 +1,8 @@
 node-ip: {{ ansible_wg0.ipv4.address }} 
 node-external-ip: {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}
+token: {{ rke2_token }}
+
+{% if rke2_type == 'server' %}
 advertise-address: {{ ansible_wg0.ipv4.address }} 
 
 tls-san:
@@ -8,9 +11,10 @@ tls-san:
   - {{ wireguard_address }} 
   - {{ansible_hostname}}
   - {{ansible_host}}
+{% endif %}
 
-token: {{ rke2_token }}
 
 {% if rke2_api_ip is defined %}
 server: https://{{ rke2_api_ip }}:9345
 {% endif %}
+
