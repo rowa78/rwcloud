@@ -1,6 +1,6 @@
 defaultNamespace: elastic
 helm:
-  releaseName: elasticsearch
+  releaseName: kibana
   chart: kibana
   repo: https://helm.elastic.co
   version: 7.15.0
