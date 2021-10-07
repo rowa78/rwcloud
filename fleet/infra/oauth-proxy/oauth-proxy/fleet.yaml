@@ -1,4 +1,3 @@
-defaultNamespace: longhorn-system
 helm:
   releaseName: oauth2-proxy
   chart: oauth2-proxy
