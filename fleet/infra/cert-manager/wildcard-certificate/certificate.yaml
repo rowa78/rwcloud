@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "rwcloud-org"
+  namespace: ingress-nginx
+spec:
+  secretName: "rwcloud-org-tls"
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "rwcloud.org"
+  dnsNames:
+  - "rwcloud.org"
+  - "*.rwcloud.org"
