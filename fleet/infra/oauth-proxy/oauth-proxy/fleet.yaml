@@ -1,0 +1,23 @@
+defaultNamespace: longhorn-system
+helm:
+  releaseName: oauth2-proxy
+  chart: oauth2-proxy
+  repo: https://charts.bitnami.com/bitnami
+  version: 1.0.2
+  values:
+    configuration:      
+      existingSecret: "oauth-secrets"
+      authenticatedEmailsFile:
+        enabled: true
+        restricted_access: |-
+          mail@ronnywalter.de
+    ingress:
+      enabled: true
+      path: /
+      hosts:
+        - auth.rwcloud.org      
+      tls:
+        - hosts:
+            - auth.rwcloud.org
+dependsOn:
+  - name: oauth-proxy-fleet-infra-oauth-proxy
