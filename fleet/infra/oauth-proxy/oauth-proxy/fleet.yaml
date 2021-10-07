@@ -2,8 +2,8 @@ defaultNamespace: oauth2-proxy
 helm:
   releaseName: oauth2-proxy
   chart: oauth2-proxy
-  repo: https://charts.bitnami.com/bitnami
-  version: 1.0.2
+  repo: https://oauth2-proxy.github.io/manifests
+  version: 4.2.2
   values:
     configuration:      
       existingSecret: "oauth-secrets"
