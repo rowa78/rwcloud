@@ -8,6 +8,7 @@ helm:
     esConfig: 
       elasticsearch.yml: |
         xpack.security.enabled: true
+        xpack.security.transport.ssl.enabled: true
     resources:
       requests:
         cpu: "500m"
