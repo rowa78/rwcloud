@@ -5,12 +5,17 @@ helm:
   repo: https://oauth2-proxy.github.io/manifests
   version: 4.2.2
   values:
-    configuration:      
+    extraArgs:
+      provider: github
+    
+    config:
       existingSecret: "oauth-secrets"
-      authenticatedEmailsFile:
-        enabled: true
-        restricted_access: |-
-          mail@ronnywalter.de
+    
+    authenticatedEmailsFile:
+      enabled: true
+      restricted_access: |-
+        mail@ronnywalter.de
+    
     ingress:
       enabled: true
       path: /
