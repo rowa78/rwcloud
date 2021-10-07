@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "elastic-cert"  
+spec:
+  secretName: "elastic-cert-tls"
+  isCA: true
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "elastic.rwcloud.org"
+  subject:
+    organizations: 
+      - rwcloud.org
