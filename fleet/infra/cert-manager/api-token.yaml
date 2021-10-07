@@ -3,4 +3,4 @@ kind: OnePasswordItem
 metadata:
   name: cloudflare-token-secret #this name will also be used for naming the generated kubernetes secret  
 spec:
-  itemPath: "vaults/k8s/items/cloudflare-api-token"
+  itemPath: "vaults/k8s/items/cloudflare-token-secret"
