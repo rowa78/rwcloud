@@ -11,6 +11,9 @@ helm:
     config:
       existingSecret: "oauth-secrets"
     
+    whitelist-domain: .rwcloud.org
+    cookie-domain: .rwcloud.org
+
     authenticatedEmailsFile:
       enabled: true
       restricted_access: |-
@@ -20,7 +23,7 @@ helm:
       enabled: true
       path: /
       hosts:
-        - auth.rwcloud.org      
+        - auth.rwcloud.org
       tls:
         - hosts:
             - auth.rwcloud.org
