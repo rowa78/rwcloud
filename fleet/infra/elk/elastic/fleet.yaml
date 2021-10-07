@@ -12,5 +12,11 @@ helm:
       limits:
         cpu: "1000m"
         memory: "2Gi"
+    volumeClaimTemplate:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 15Gi
+      storageClassName: longhorn-nobackup
 dependsOn:
   - name: longhorn-fleet-infra-longhorn-longhorn-deployment

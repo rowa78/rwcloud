@@ -17,3 +17,6 @@ diff:
       name: rancher-monitoring-admission
       operations:
         - { 'op': 'remove', 'path': '/webhooks/0/failurePolicy' }
+
+dependsOn:
+  - name: monitoring-fleet-infra-monitoring-crd
