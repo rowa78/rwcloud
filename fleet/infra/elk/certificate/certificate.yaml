@@ -1,15 +1,23 @@
 ---
 apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: my-issuer
+spec:
+  selfSigned: {}
+
+---
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "elastic-cert"  
+  name: elastic-cert
 spec:
-  secretName: "elastic-cert-tls"
+  commonName: rwcloud
   isCA: true
   issuerRef:
-    name: letsencrypt-production
-    kind: ClusterIssuer
-  commonName: "elastic.rwcloud.org"
+    kind: Issuer
+    name: my-issuer
+  secretName: elastic-cert
   subject:
-    organizations: 
-      - rwcloud.org
+    organizations:
+      - rwcloud
