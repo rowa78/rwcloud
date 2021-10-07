@@ -1,0 +1,25 @@
+defaultNamespace: longhorn-system
+helm:
+  releaseName: cert-manager
+  chart: cert-manager
+  repo: https://charts.jetstack.io/
+  version: v1.5.3
+  values:
+    installCRDs: true
+    webhook:
+      enabled: true
+    extraArgs:
+    - --dns01-recursive-nameservers=1.1.1.1:53
+    - --dns01-recursive-nameservers-only
+    cainjector:
+      replicaCount: 1
+    podDnsPolicy: "None"
+    podDnsConfig:
+      nameservers:
+      - "1.1.1.1"      
+    prometheus:
+      enabled: true
+      servicemonitor:
+        enabled: true    
+dependsOn:
+  - name: longhorn-fleet-infra-longhorn-longhorn-crd
