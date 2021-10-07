@@ -5,6 +5,9 @@ helm:
   repo: https://helm.elastic.co
   version: 7.15.0
   values:
+    kibanaConfig: 
+      kibana.yml: |
+        server.publicBaseUrl: https://kibana.rwcloud.org
     ingress:
       enabled: true
       annotations:

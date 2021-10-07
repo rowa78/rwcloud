@@ -9,12 +9,10 @@ helm:
       provider: github
       whitelist-domain: .rwcloud.org      
       cookie-domain: .rwcloud.org   
-       
+
     config:
       existingSecret: "oauth-secrets"
     
-
-
     authenticatedEmailsFile:
       enabled: true
       restricted_access: |-
