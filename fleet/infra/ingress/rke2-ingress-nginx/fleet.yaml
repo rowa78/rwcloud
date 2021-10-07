@@ -15,5 +15,7 @@ helm:
           enabled: true
       extraArgs:
         default-ssl-certificate: "ingress-nginx/rwcloud-org-tls"
+      ingressClassResource:        
+        default: true
 dependsOn:
   - name: cert-manager-fleet-infra-cert-manager-wildcard-certificate
