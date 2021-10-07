@@ -1,0 +1,21 @@
+defaultNamespace: elastic
+helm:
+  releaseName: kibana
+  chart: kibana
+  repo: https://helm.elastic.co
+  version: 7.15.0
+  values:
+    ingress:
+      enabled: true
+      annotations:
+        {}
+        # kubernetes.io/ingress.class: nginx
+        # kubernetes.io/tls-acme: "true"
+      hosts:
+        - host: kibana.rwcloud.org
+          paths:
+            - path: /
+      tls: []
+      #  - secretName: chart-example-tls
+      #    hosts:
+      #      - chart-example.local

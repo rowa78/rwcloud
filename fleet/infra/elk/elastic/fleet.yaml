@@ -5,6 +5,9 @@ helm:
   repo: https://helm.elastic.co
   version: 7.15.0
   values:
+    esConfig: 
+      elasticsearch.yml: |
+        xpack.security.enabled: true
     resources:
       requests:
         cpu: "500m"
