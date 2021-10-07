@@ -1,4 +1,4 @@
-defaultNamespace: longhorn-system
+defaultNamespace: cert-manager
 helm:
   releaseName: cert-manager
   chart: cert-manager
@@ -22,4 +22,4 @@ helm:
       servicemonitor:
         enabled: true    
 dependsOn:
-  - name: longhorn-fleet-infra-longhorn-longhorn-crd
+  - name: cert-manager-fleet-infra-cert-manager
