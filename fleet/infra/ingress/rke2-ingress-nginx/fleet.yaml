@@ -1,0 +1,18 @@
+defaultNamespace: ingress-nginx
+helm:
+  releaseName: ingress-nginx
+  chart: rke2-ingress-nginx
+  repo: https://rke2-charts.rancher.io
+  version: 4.0.303
+  values:
+    config:
+      proxy-body-size: "100m"
+      use-forwarded-headers: "true"
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+    extraArgs:
+      default-ssl-certificate: "ingress-nginx/rwcloud-org-tls"
+dependsOn:
+  - name: cert-manager-fleet-infra-cert-manager-wildcard-certificate
