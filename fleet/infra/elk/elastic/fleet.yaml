@@ -56,7 +56,6 @@ helm:
           --ca-pass "" \
           --pass "" \
           --out /usr/share/elasticsearch/config/certs-gen/keystore.p12
-        sleep 3600
       env:
       - name: NODE_NAME
         valueFrom:
