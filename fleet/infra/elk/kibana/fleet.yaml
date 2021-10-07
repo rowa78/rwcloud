@@ -15,6 +15,5 @@ helm:
           paths:
             - path: /
       tls:
-        - secretName: chart-example-tls
-          hosts:
+        - hosts:
             - kibana.rwcloud.org
