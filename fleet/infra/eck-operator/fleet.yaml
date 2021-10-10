@@ -11,4 +11,4 @@ diff:
       kind: ValidatingWebhookConfiguration
       name: elastic-operator.elastic-system.k8s.elastic.co
       operations:
-        - { 'op': 'remove', 'path': '/webhooks/0/failurePolicy' }
+        - { 'op': 'remove', 'path': '/webhooks' }
