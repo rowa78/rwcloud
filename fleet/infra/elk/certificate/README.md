@@ -1,1 +1,0 @@
-https://thomasdecaux.medium.com/configure-transport-layer-security-tls-ssl-for-an-elasticsearch-cluster-deployed-with-helm-on-fbbac2325a00
