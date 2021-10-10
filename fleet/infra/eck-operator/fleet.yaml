@@ -4,3 +4,11 @@
 # but do not specify a namespace.  In this example no resources
 # are configured with a namespace so this default will apply
 defaultNamespace: elastic-system
+
+diff:
+  comparePatches:    
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: elastic-operator.elastic-system.k8s.elastic.co
+      operations:
+        - { 'op': 'remove', 'path': '/webhooks/0/failurePolicy' }
