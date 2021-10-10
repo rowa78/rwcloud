@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kibana-lm-ingress  
+spec:
+  rules:
+  - host: kibana.rwcloud.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: kibana-kb-http
+            port:
+              number: 5601
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - kibana.rwcloud.org

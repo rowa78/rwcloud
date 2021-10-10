@@ -2,7 +2,7 @@ kind: GitRepo
 apiVersion: fleet.cattle.io/v1alpha1
 metadata:
   # Any name can be used here
-  name: eck
+  name: logging
   # For single cluster use fleet-local, otherwise use the namespace of
   # your choosing
   namespace: fleet-default
@@ -60,7 +60,7 @@ spec:
   # - single-path
   # - multiple-paths/*
   paths:
-  - fleet/infra/eck-operator
+  - fleet/infra/logging
 
   # The service account that will be used to perform this deployment.
   # This is the name of the service account that exists in the

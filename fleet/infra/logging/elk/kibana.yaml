@@ -1,0 +1,36 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: kibana
+spec:
+  version: 7.15.0
+  count: 1
+  elasticsearchRef:
+    name: "elasticsearch"
+  secureSettings:
+  - secretName: kibana-saved-objects-encrypted-key
+  http:
+    service:
+      spec:
+        type: ClusterIP
+        ports:
+        - name: https
+          protocol: TCP
+          port: 5601
+          targetPort: 5601
+    tls: # I put it in the wrong place before
+      selfSignedCertificate:
+        disabled: true
+  # this shows how to customize the Kibana pod
+  # with labels and resource limits
+  podTemplate:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        resources:
+          limits:
+            memory: 1Gi
+            cpu: 1
