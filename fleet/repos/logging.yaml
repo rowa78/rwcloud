@@ -78,3 +78,5 @@ spec:
   # targets: ...
   targets:
     - clusterSelector: {}
+dependsOn:
+  - name: eck-fleet-infra-eck-operator-eck-operator
