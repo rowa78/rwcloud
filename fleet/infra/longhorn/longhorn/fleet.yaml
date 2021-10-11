@@ -9,6 +9,8 @@ helm:
       backupTarget: 's3://longhorn@us-east-1/'
       backupTargetCredentialSecret: minio-secrets
       defaultReplicaCount: 2
+      guaranteedEngineManagerCPU: 5
+      guaranteedReplicaManagerCPU: 5
     resources:   
       limits:
         cpu: 100m
