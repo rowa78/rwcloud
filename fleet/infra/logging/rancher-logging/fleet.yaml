@@ -1,0 +1,6 @@
+defaultNamespace: cattle-logging-system
+helm:
+  releaseName: rancher-logging
+  repo: https://charts.rancher.io
+  chart: rancher-logging
+  version: 100.0.0+up3.12.0
