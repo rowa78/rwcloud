@@ -11,15 +11,25 @@ diff:
       kind: ValidatingWebhookConfiguration
       name: elastic-operator.elastic-system.k8s.elastic.co
       operations:
-        - {"op": "remove", "path":"/webhooks/0/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/1/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/2/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/3/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/4/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/5/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/6/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/7/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/8/clientConfig/caBundle"}
-        - {"op": "remove", "path":"/webhooks/9/clientConfig/caBundle"}        
-
+      - {"op": "remove", "path":"/webhooks/0/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/0/rules"}
+      - {"op": "remove", "path":"/webhooks/1/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/1/rules"}  
+      - {"op": "remove", "path":"/webhooks/2/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/2/rules"}  
+      - {"op": "remove", "path":"/webhooks/3/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/3/rules"}  
+      - {"op": "remove", "path":"/webhooks/4/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/4/rules"}  
+      - {"op": "remove", "path":"/webhooks/5/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/5/rules"}  
+      - {"op": "remove", "path":"/webhooks/6/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/6/rules"}  
+      - {"op": "remove", "path":"/webhooks/7/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/7/rules"}  
+      - {"op": "remove", "path":"/webhooks/8/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/8/rules"}  
+      - {"op": "remove", "path":"/webhooks/9/clientConfig/caBundle"}
+      - {"op": "remove", "path":"/webhooks/9/rules"}  
+      
 
