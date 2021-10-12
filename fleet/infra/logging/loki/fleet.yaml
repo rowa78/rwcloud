@@ -3,7 +3,7 @@ helm:
   releaseName: loki
   repo: https://grafana.github.io/helm-charts
   chart: loki-stack
-  version: 2.6.0
+  version: 2.5.0
   values:
     loki:
       persistence:
