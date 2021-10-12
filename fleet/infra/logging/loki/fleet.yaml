@@ -1,0 +1,24 @@
+defaultNamespace: logging
+helm:
+  releaseName: loki
+  repo: https://grafana.github.io/helm-charts
+  chart: loki
+  version: 2.6.0
+  values:
+    ingress:
+      enabled: true
+      annotations: 
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: loki.rwcloud.org
+          paths: /
+      tls: 
+        - hosts:
+          - loki.rwcloud.org
+    persistence:
+      enabled: true
+      accessModes:
+      - ReadWriteOnce
+      size: 10Gi
+      storageClassName: longhorn-nobackup
+      annotations: {}
