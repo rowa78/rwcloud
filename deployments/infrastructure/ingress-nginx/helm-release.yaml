@@ -29,3 +29,4 @@ spec:
       ingressClassResource:        
         default: true
       watchIngressWithoutClass: true
+      
