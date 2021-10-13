@@ -72,13 +72,6 @@ direnv allow .envrc
 
 Now your environment-variables are set.
 
-## Setup flux
-
-Create namespace
-
-```
-kubectl create namespace flux-system
-```
 
 ### create initial config
 
@@ -93,8 +86,8 @@ Install the 1password operator
 
 ```
 helm repo add 1password https://1password.github.io/connect-helm-charts
-helm -n 1password upgrade -i connect ../connect-helm-charts/charts/connect --set-file connect.credentials=/mnt/c/tmp/1password-credentials.json --values 1password-operator/values.yaml
-kubectl apply -f 1password-operator/clusterrolebinding.yaml
+helm -n 1password upgrade -i connect 1password/connect --version 1.5.0 --set-file connect.credentials=/mnt/c/tmp/1password-credentials.json --values 1password-operator/values.yaml
+#kubectl apply -f 1password-operator/clusterrolebinding.yaml
 ```
 
 
@@ -105,7 +98,7 @@ install flux
 
 ``` 
 kubectl create namespace flux-system
-flux bootstrap github --owner=rowa78 --repository=k8s-home --path=./clusters/production
+flux bootstrap github --owner=rowa78 --repository=rwcloud --path=./clusters/production
 ```
 
 ### manual changed
