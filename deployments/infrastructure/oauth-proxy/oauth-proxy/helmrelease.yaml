@@ -20,12 +20,7 @@ spec:
     image:
       repository: "quay.io/oauth2-proxy/oauth2-proxy"
       tag: "v7.1.3"
-    replicaCount: 2
-    nodeSelector: 
-        beta.kubernetes.io/arch: arm64
-    # tolerations:
-    #   - key: "arm"
-    #     operator: "Exists"
+    replicaCount: 2    
     ingress:
       enabled: true
       path: /oauth2
