@@ -5,6 +5,10 @@ token: {{ rke2_token }}
 {% if rke2_type == 'server' %}
 advertise-address: {{ ansible_wg0.ipv4.address }} 
 
+{% if disable_ingress %}
+disable: rke2-ingress-nginx
+{% endif %}
+
 tls-san:
   - cluster.local
   - 127.0.0.1

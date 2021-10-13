@@ -1,0 +1,4 @@
+wireguard_address: "10.0.0.15/24"
+wireguard_endpoint: "161.97.177.245"
+
+rke2_type: agent

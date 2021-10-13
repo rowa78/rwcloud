@@ -1,0 +1,64 @@
+---
+- name: ensure a list of packages installed
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - dnsmasq
+
+- name: disable systemd-resolved
+  service:
+    name: systemd-resolved
+    enabled: false
+
+- name: Stop service systemd-resolved
+  service:
+    name: systemd-resolved
+    state: stopped
+
+- name: Remove symlink
+  file:
+   path: "/etc/resolv.conf"
+   state: absent
+
+- name: Configuring /etc/resolv.conf.config
+  template:
+    src: resolv.conf.config.j2
+    dest: /etc/resolv.conf.config
+    owner: root
+    group: root
+    mode: '644'
+
+- name: Configuring /etc/resolv.conf
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: '644'
+
+- name: Configuring /etc/dnsmasq.conf
+  template:
+    src: dnsmasq.conf.j2
+    dest: /etc/dnsmasq.conf
+    owner: root
+    group: root
+    mode: '644'
+
+- name: Configuring /etc/hosts
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: '644'
+
+- name: Enable service dnsmasq, and not touch the state
+  service:
+    name: dnsmasq
+    enabled: yes
+
+- name: Start service dnsmasq
+  service:
+    name: dnsmasq
+    state: restarted

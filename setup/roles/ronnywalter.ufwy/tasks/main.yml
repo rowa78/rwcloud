@@ -1,0 +1,39 @@
+- name: stop fail2ban
+  service:
+    name: fail2ban
+    state: stopped
+
+- name: reset
+  community.general.ufw:
+    state: reset
+    policy: allow
+
+- name: Set logging
+  ufw:
+    logging: 'on'
+
+- name: Allow ssh through firewall
+  ufw: proto=tcp port=22 rule=allow
+
+- name: Set ufw policy
+  ufw: state=enabled direction=incoming policy=deny
+
+- name: 'Allow docker DEFAULT_FORWARD_POLICY=ACCEPT'
+  ufw: direction=routed default=allow route=yes
+
+- name: Allow https through firewall
+  ufw: proto=tcp port=443 rule=allow
+
+- name: Allow wireguard through firewall
+  ufw: proto=udp port=51820 rule=allow
+
+- name: allow access from wg0
+  community.general.ufw:
+    rule: allow
+    interface: wg0
+    direction: in
+
+- name: start fail2ban
+  service:
+    name: fail2ban
+    state: started

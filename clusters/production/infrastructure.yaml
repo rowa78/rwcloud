@@ -6,8 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./infrastructure
-  prune: false
+  path: ./deploymemts/infrastructure
+  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system

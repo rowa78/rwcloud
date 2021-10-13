@@ -1,6 +1,5 @@
 ---
 
-- name: Configuring service
-  ufw:
-    state: "{{ ufw_state }}"
-    logging: "{{ ufw_logging }}"
+- name: Configuring service state
+  community.general.ufw:
+    state: "{{ 'enabled' if ufw_enabled else 'disabled' }}"

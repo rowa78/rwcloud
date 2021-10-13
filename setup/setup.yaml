@@ -1,31 +1,30 @@
-- name: Prepare hosts
+- name: Prepare rancher-host
   hosts: all
-  vars:
-    rke2_version: v1.21.5+rke2r1
   roles:
      - ronnywalter.common
-     - ronnywalter.resolv_nodes
      - ronnywalter.ipv6
-     - githubixx.ansible_role_wireguard
+     - ronnywalter.resolv_nodes
      - ronnywalter.fail2ban
+     - githubixx.ansible_role_wireguard     
      - weareinteractive.ufw  
-
-- name: Prepare rancher-cluster
-  hosts: rancher_nodes
-  vars:
-    rke2_version: v1.21.5+rke2r1
-    rke2_custom_manifests: manifests/
-    rke2_token: ljkhfewiu32ni439
-  roles:     
-     - ronnywalter.prepare_rke2
+  
+#- name: Prepare rancher-cluster
+#  hosts: rancher_nodes
+#  vars:
+#    rke2_version: v1.21.5+rke2r2
+#    rke2_custom_manifests: manifests/
+#    rke2_token: ljkhfewiu32ni439
+#  roles:     
+#     - ronnywalter.prepare_rke2
      
 
 - name: Prepare workload-cluster
   serial: 1
   hosts: nodes
   vars:
-    rke2_version: v1.21.5+rke2r1
+    rke2_version: v1.21.5+rke2r2
     rke2_custom_manifests: manifests/
     rke2_token: ljkhfewiu32ni439
+    disable_ingress: true
   roles:     
      - ronnywalter.prepare_rke2

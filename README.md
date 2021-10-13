@@ -7,36 +7,27 @@ login and change the default password 'ubuntu' to something you like
 copy your ssh-key to the machines:
 
 ```
-ssh-copy-id ubuntu@pi-0
-ssh-copy-id ubuntu@pi-1
-ssh-copy-id ubuntu@pi-2
-ssh-copy-id ubuntu@pi-3
+ssh-copy-id root@vps-1
+ssh-copy-id root@vps-2
+ssh-copy-id root@vps-3
+ssh-copy-id root@vps-4
+ssh-copy-id root@vps-5
 ```
 
-Login and change hostnames:
-
-```
-sudo hostnamectl set-hostname pi-0
-sudo hostnamectl set-hostname pi-1
-sudo hostnamectl set-hostname pi-2
-sudo hostnamectl set-hostname pi-3
-```
-
-## setup k3s-cluster
+## setup cluster
 
 ## Setting up the cluster
 
-edit the host-config in setup/hosts.yaml
+edit the host-config in setup/hosts.ini
 
 ```
 cd setup
-ansible-playbook setup-k3s.yaml
+ansible-playbook -i hosts.ini setup.yaml
 ```
 
-get kubeconfig from the cluster. It is located in file /etc/rancher/k3s/k3s.yaml. Place it in your homefolder: $HOME/.kube/config and edit the url to the loadbalanced ip provided by kube-vip. (192.168.0.119 in my case):
-
+get kubeconfig from the cluster. It is located in file /etc/rancher/rke2/rke2.yaml. Place it in your homefolder: $HOME/.kube/config and edit the url
 ```
-server: https://192.168.0.119:6443
+server: https://domain.com:6443
 ```
 
 
@@ -44,16 +35,8 @@ check the new cluster
 
 ```
 kubectl cluster-info
-Kubernetes control plane is running at https://192.168.0.119:6443
-CoreDNS is running at https://192.168.0.119:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-Metrics-server is running at https://192.168.0.119:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+Kubernetes control plane is running at .....
 ```
-
-## Import Cluster to rancher
-
-
-
-
 
 ## Setting up direnv
 

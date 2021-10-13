@@ -2,7 +2,7 @@
 # tasks file for ronnywalter.common
 - name: change hostname
   hostname:
-    name: "{{ansible_host}}"
+    name: "{{ansible_host.split('.')[0]}}"
 
 - name: Upgrade all packages to the latest version
   apt:

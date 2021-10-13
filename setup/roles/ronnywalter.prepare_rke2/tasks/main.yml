@@ -54,6 +54,11 @@
   with_items: "{{ rke2_custom_manifests }}"
   when: rke2_custom_manifests        
 
+- name: Enable service 
+  ansible.builtin.service:
+    name: rke2-{{ rke2_type }}
+    enabled: yes
+
 - name: Restart service rke2, in all cases
   ansible.builtin.service:
     name: rke2-{{ rke2_type }}

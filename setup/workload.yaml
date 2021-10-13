@@ -5,5 +5,6 @@
     rke2_version: v1.21.5+rke2r1
     rke2_custom_manifests: manifests/
     rke2_token: ljkhfewiu32ni439
+    disable_ingress: true
   roles:     
      - ronnywalter.prepare_rke2
