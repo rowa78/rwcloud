@@ -34,8 +34,8 @@ spec:
     ##
     extraArgs:
       - --enable-skip-login
-    #  - --enable-insecure-login
-    #   - --system-banner="Welcome to Kubernetes"
+      - --enable-insecure-login
+      - --system-banner="Welcome to Kubernetes"
 
     ## Additional container environment variables
     ##
