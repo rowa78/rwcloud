@@ -282,4 +282,4 @@ spec:
     ## podSecurityPolicy for fine-grained authorization of pod creation and updates
     podSecurityPolicy:
       # Specifies whether a pod security policy should be created
-      enabled: false
+      enabled: true
