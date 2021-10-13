@@ -32,7 +32,7 @@ spec:
 
     ## Additional container arguments
     ##
-    extraArgs:
+    extraArgs: []
       #- --enable-skip-login
       #- --enable-insecure-login
       #- --system-banner="Welcome to Kubernetes"
