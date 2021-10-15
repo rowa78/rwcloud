@@ -1,5 +1,5 @@
 - name: Prepare hosts
   hosts: all
   roles:
-     - ronnywalter.ufw  
+     - weareinteractive.ufw
 
