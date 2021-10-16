@@ -7,7 +7,8 @@ metadata:
 spec:
   interval: 5m
   chart:  
-    spec:      
+    spec:
+      # renovate: registryUrl=https://charts.bitnami.com/bitnami
       chart: rancher-monitoring
       version: 100.0.0+up16.6.0
       sourceRef:
@@ -17,3 +18,12 @@ spec:
       interval: 5m
   dependsOn:
     - name: rancher-monitoring-crd
+  values:
+    prometheus:
+      persistent:
+        useReleaseName: true
+      remoteWrite: 
+        url: http://thanos-receive.monitoring.svc.cluster.local:19291/ap/v1/receive
+        remoteTimeout: 30s
+        name: rwcloud
+    
