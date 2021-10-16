@@ -25,6 +25,7 @@ spec:
           nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/oauth2/auth"
           nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/oauth2/start
         tls: 
-          minio.${SECRET_DOMAIN}
+        - hosts: 
+          - minio.${SECRET_DOMAIN}
         host: minio.${SECRET_DOMAIN}
         path: /
