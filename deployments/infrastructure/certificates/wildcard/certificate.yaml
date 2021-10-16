@@ -2,13 +2,14 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: tls-rancher-ingress
-  namespace: cattle-system
+  name: "${SECRET_DOMAIN/./-}"
+  namespace: ingress-nginx
 spec:
-  secretName: tls-rancher-ingress
+  secretName: "${SECRET_DOMAIN/./-}-tls"
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "rancher.${SECRET_DOMAIN}"
+  commonName: "${SECRET_DOMAIN}"
   dnsNames:
-  - "rancher.${SECRET_DOMAIN}"  
+  - "${SECRET_DOMAIN}"
+  - "*.${SECRET_DOMAIN}"
