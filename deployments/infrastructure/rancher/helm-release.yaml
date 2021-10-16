@@ -17,8 +17,7 @@ spec:
         namespace: flux-system
   values:
     replicas: 2
-    hostname: "rancher.${SECRET_DOMAIN}"
-    bootstapPassword: admin
+    hostname: "rancher.${SECRET_DOMAIN}"    
     ingress:
       tls:
         source: secret
