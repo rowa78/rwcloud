@@ -62,6 +62,10 @@ export BOOTSTRAP_GITHUB_REPOSITORY=https://github.com/rowa78/k8s-home
 
 # 1Password-Token
 export OP_TOKEN=
+
+# Sops Keys
+export KEY_NAME="rwcloud.org"
+export KEY_COMMENT="flux secrets for rwcloud-cluster"
 ```
 
 allow this file
@@ -71,6 +75,30 @@ direnv allow .envrc
 ```
 
 Now your environment-variables are set.
+
+create gpg keys for sops
+
+https://fluxcd.io/docs/guides/mozilla-sops/
+
+
+create a namespace for flux and add the key to it:
+
+```
+k create namespace flux-system
+
+gpg --list-secret-keys "${KEY_NAME}"
+
+# store Fingerprint
+export KEY_FP=
+
+# add the secret
+gpg --export-secret-keys --armor "${KEY_FP}" |
+kubectl create secret generic sops-gpg \
+--namespace=flux-system \
+--from-file=sops.asc=/dev/stdin
+```
+
+
 
 
 ### create initial config
@@ -90,6 +118,44 @@ helm -n 1password upgrade -i connect 1password/connect --version 1.5.0 --set-fil
 #kubectl apply -f 1password-operator/clusterrolebinding.yaml
 ```
 
+### Install cert-manager
+
+```
+# Add the Jetstack Helm repository
+helm repo add jetstack https://charts.jetstack.io
+
+# Update your local Helm chart repository cache
+helm repo update
+
+# Install the cert-manager Helm chart
+helm --kubeconfig rke2.yaml install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --set installCRDs=true \
+  --version v1.5.1
+```
+
+setup secrets and certs
+
+k --kubeconfig rke2.yaml -n cert-manager apply -f ~/secret_rwcloud.yaml
+k --kubeconfig rke2.yaml -n cert-manager apply -f ~/clusterissuer_rwcloud.yaml
+k --kubeconfig rke2.yaml create namespace cattle-system
+k --kubeconfig rke2.yaml apply -f ~/certificate_rwcloud.yaml
+
+wait for valid certificate
+
+k --kubeconfig rke2.yaml -n cattle-system get certificate
+
+
+### Install wildcard-cert
+
+### Install rancher
+
+
+
+
+### Install ingress-nginx
+
 
 
 ### install flux to cluster
@@ -98,7 +164,7 @@ install flux
 
 ``` 
 kubectl create namespace flux-system
-flux bootstrap github --owner=rowa78 --repository=rwcloud --path=./clusters/production
+flux bootstrap github --owner=rowa78 --repository=rwcloud --path=./clusters/rwcloud
 ```
 
 ### manual changed
