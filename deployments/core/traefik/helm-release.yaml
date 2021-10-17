@@ -19,6 +19,8 @@ spec:
     deployment:
       kind: DaemonSet
     hostNetwork: true
+    service:
+      type: ClusterIP
     ports:
       web:
         port: 80
