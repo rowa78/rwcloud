@@ -19,3 +19,9 @@ spec:
     deployment:
       kind: DaemonSet
     hostNetwork: true
+    ports:
+      web:
+        port: 80
+        redirectTo: websecure
+      websecure:
+        port: 443
