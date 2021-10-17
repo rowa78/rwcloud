@@ -53,9 +53,7 @@ spec:
         level: DEBUG
       access:
         enabled: true
-        format: json
-    dashboard:
-      enabled: true
+        format: json    
     ingressRoute:
       dashboard:
-        enabled: false
+        enabled: true
