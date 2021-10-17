@@ -18,3 +18,5 @@ spec:
   values:
     service:
       type: NodePort
+    dashboard:
+      enabled: true
