@@ -15,6 +15,6 @@ spec:
         - name: api@internal
           kind: TraefikService
       middlewares:
-        - name: rfc1918
+        - name: traefik-dashboard-auth
   tls:
     secretName: "${SECRET_DOMAIN/./-}-tls"
