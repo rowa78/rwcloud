@@ -26,12 +26,9 @@ spec:
         host
       web:
         port: 80
-        hostPort: 80
-        exposedPort: 80
-        redirectTo: websecure
-        protocol: TCP
+        hostPort: 80       
+        redirectTo: websecure        
       websecure:
         port: 443
         hostPort: 443
-        exposedPort: 443
-        protocol: TCP
+            
