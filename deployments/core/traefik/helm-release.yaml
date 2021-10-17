@@ -18,3 +18,4 @@ spec:
   values:
     deployment:
       kind: DaemonSet
+    hostNetwork: true
