@@ -56,4 +56,4 @@ spec:
         format: json    
     ingressRoute:
       dashboard:
-        enabled: true
+        enabled: false
