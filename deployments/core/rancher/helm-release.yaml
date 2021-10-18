@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://charts.jetstack.io/
       chart: rancher
-      version: 2.6.1
+      version: 2.6.0
       sourceRef:
         kind: HelmRepository
         name: rancher-stable
@@ -20,6 +20,5 @@ spec:
     hostname: "rancher.${SECRET_DOMAIN}"
     ingress:
       tls:
-        source: secret
-    bootstrapPassword: kjlrelkjf43orj89f4389j894f3
+        source: secret    
     
