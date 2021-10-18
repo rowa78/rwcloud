@@ -76,17 +76,8 @@ spec:
           operator: "Exists"
 
   storage:
-    useAllNodes: false
+    useAllNodes: true
     useAllDevices: false
     config:
       osdsPerDevice: "1"
-    nodes:
-      - name: "k3s-wo-01"
-        devices:
-          - name: "sdb"
-      - name: "k3s-wo-02"
-        devices:
-          - name: "sdb"
-      # - name: "k3s-wo-05"
-      #   devices:
-      #     - name: "sdb"
+    
