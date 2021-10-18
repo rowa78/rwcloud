@@ -20,6 +20,5 @@ spec:
     hostname: "rancher.${SECRET_DOMAIN}"
     ingress:
       tls:
-        source: secret
-    bootstrapPassword: "kjlrelkjf43orj89f4389j894f3"
-    
+        source: secret    
+
