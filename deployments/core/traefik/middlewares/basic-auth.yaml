@@ -6,4 +6,4 @@ metadata:
   namespace: networking
 spec:
   basicAuth:
-    secret: traefik-dashboard-auth-secret
+    secret: traefik-dashboard-auth
