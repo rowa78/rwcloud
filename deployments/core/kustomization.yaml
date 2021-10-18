@@ -7,4 +7,4 @@ resources:
   - ingress-nginx
   - wildcard-certificate
   - rancher
-  - rook-ceph
+  #- rook-ceph
