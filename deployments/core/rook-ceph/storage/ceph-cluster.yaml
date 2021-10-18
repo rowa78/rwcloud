@@ -18,7 +18,7 @@ spec:
   removeOSDsIfOutAndSafeToRemove: false
 
   mon:
-    count: 3
+    count: 5
     allowMultiplePerNode: false
 
   monitoring:
