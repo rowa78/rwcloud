@@ -50,7 +50,7 @@ spec:
     logs:
       general:
         format: json
-        level: DEBUG
+        #level: DEBUG
       access:
         enabled: true
         format: json    
