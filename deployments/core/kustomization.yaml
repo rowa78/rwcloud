@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - namespaces
   - cert-manager
-  - traefik
+  #- traefik
+  - ingress-nginx
   - wildcard-certificate
   - rancher
