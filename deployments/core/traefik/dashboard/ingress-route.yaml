@@ -14,7 +14,7 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-      middlewares:
-        - name: traefik-dashboard-auth
+      #middlewares:
+      #  - name: traefik-dashboard-auth
   tls:
     secretName: "${SECRET_DOMAIN/./-}-tls"
