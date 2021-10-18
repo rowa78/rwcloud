@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - cert-manager.yaml
   - networking.yaml
-  - cattle-system
+  - cattle-system.yaml
