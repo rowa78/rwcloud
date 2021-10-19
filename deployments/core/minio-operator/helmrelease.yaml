@@ -1,0 +1,79 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minio-operator
+  namespace: minio-operator
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://oauth2-proxy.github.io/manifests
+      chart: minio-operator
+      version: 4.2.14
+      sourceRef:
+        kind: HelmRepository
+        name: minio-operator-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    console:
+      ingress:
+        enabled: true
+        labels: {}
+        annotations: 
+          nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/oauth2/auth"
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/oauth2/start
+        tls: 
+        - hosts: 
+          - minio.${SECRET_DOMAIN}
+        host: minio.${SECRET_DOMAIN}
+        path: /
+    ## MinIO Tenant Definition
+    tenants:
+      # Tenant name
+      - name: minio1
+        namespace: minio       
+        pools:
+          ## Servers specifies the number of MinIO Tenant Pods / Servers in this pool.
+          ## For standalone mode, supply 1. For distributed mode, supply 4 or more.
+          ## Note that the operator does not support upgrading from standalone to distributed mode.
+          - servers: 3
+            ## volumesPerServer specifies the number of volumes attached per MinIO Tenant Pod / Server.
+            volumesPerServer: 2
+            ## size specifies the capacity per volume
+            size: 10Gi
+            ## storageClass specifies the storage class name to be used for this pool
+            storageClassName: longhorn
+            ## Used to specify a toleration for a pod
+            tolerations: {}
+            ## nodeSelector parameters for MinIO Pods. It specifies a map of key-value pairs. For the pod to be
+            ## eligible to run on a node, the node must have each of the
+            ## indicated key-value pairs as labels.
+            ## Read more here: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+            nodeSelector: {}
+            ## Affinity settings for MinIO pods. Read more about affinity
+            ## here: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity.
+            affinity: {}
+            ## Configure resource requests and limits for MinIO containers
+            resources: {}
+            ## Configure security context
+            securityContext: {}
+            ## Configure topology constraints
+            topologySpreadConstraints: []
+        ## Mount path where PV will be mounted inside container(s).
+        mountPath: /export
+        ## Sub path inside Mount path where MinIO stores data.
+        subPath: /data
+        # pool secrets
+        secrets:
+          # create a kubernetes secret object with the accessKey and secretKey as defined here.
+          enabled: true
+          name: minio1-secret
+          accessKey: minio
+          secretKey: ${MINIO_TENANT1_SECRETKEY}
+        # pool metrics to be read by Prometheus
+        metrics:
+          enabled: true
+          port: 9000       
+        

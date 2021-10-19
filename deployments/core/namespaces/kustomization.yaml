@@ -8,3 +8,4 @@ resources:
   - cattle-monitoring-system.yaml
   - longhorn-system.yaml
   - snapshot-controller.yaml
+  - minio.yaml
