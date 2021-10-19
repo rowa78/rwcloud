@@ -8,7 +8,6 @@ spec:
   interval: 5m
   chart:  
     spec:
-      # renovate: registryUrl=https://charts.bitnami.com/bitnami
       chart: rancher-monitoring
       version: 100.0.0+up16.6.0
       sourceRef:
@@ -16,10 +15,13 @@ spec:
         name: rancher-charts
         namespace: flux-system
       interval: 5m
+  dependsOn:
+    - name: rancher-monitoring-crd
   values:
-    prometheus:      
-      remoteWrite: 
-        url: http://thanos-receive.thanos.svc.cluster.local:19291/ap/v1/receive
-        remoteTimeout: 30s
-        name: rwcloud
-    
+    prometheus:  
+      prometheusSpec:    
+        remoteWrite: 
+          url: http://thanos-receive.thanos.svc.cluster.local:19291/ap/v1/receive
+          remoteTimeout: 30s
+          name: rwcloud
+      
