@@ -9,4 +9,5 @@ resources:
   - rancher
   - longhorn
   - snapshot-controller
+  - minio-operator
   
