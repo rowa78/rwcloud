@@ -35,8 +35,8 @@ spec:
           #nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/oauth2/start
         tls: 
         - hosts: 
-          - minio.${SECRET_DOMAIN}
-        host: minio.${SECRET_DOMAIN}
+          - minio-operator.${SECRET_DOMAIN}
+        host: minio-operator.${SECRET_DOMAIN}
         path: /
     ## MinIO Tenant Definition
     tenants:
@@ -53,7 +53,7 @@ spec:
             ## size specifies the capacity per volume
             size: 5Gi
             ## storageClass specifies the storage class name to be used for this pool
-            storageClassName: longhorn
+            storageClassName: longhorn-nobackup-1replica
             ## Used to specify a toleration for a pod
             tolerations: {}
             ## nodeSelector parameters for MinIO Pods. It specifies a map of key-value pairs. For the pod to be

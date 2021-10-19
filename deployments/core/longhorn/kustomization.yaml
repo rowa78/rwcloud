@@ -5,5 +5,6 @@ resources:
   - helm-release-longhorn.yaml
   - longhorn-storageclass-no-backup.yaml
   - longhorn-storageclass.yaml
+  - longhorn-storageclass-1-replica-no-backup.yaml
   - volumesnapshotclass.yaml
 
