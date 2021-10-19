@@ -6,4 +6,4 @@ resources:
   - ingress-nginx.yaml  
   - cattle-system.yaml
   - cattle-monitoring-system.yaml
-  - rook-ceph.yaml
+  
