@@ -1,0 +1,7 @@
+- name: Clear rook dir  
+  hosts: nodes
+  tasks:
+    - name: Recursively remove directory
+      ansible.builtin.file:
+        path: /var/lib/rook
+        state: absent
