@@ -21,9 +21,9 @@ spec:
       ingress:
         enabled: true
         labels: {}
-        annotations: 
-          nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/oauth2/auth"
-          nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/oauth2/start
+        annotations: {}
+          #nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/oauth2/auth"
+          #nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/oauth2/start
         tls: 
         - hosts: 
           - minio.${SECRET_DOMAIN}
