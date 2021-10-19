@@ -8,4 +8,4 @@ resources:
   - rook-ceph-cluster-helmrelease.yaml  
   #- service-monitors
   #- snapshot-controller
-  - storage
+  #- storage
