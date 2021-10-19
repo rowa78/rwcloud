@@ -4,10 +4,7 @@ kind: CephCluster
 metadata:
   name: rook-ceph
   namespace: rook-ceph
-spec:
-  cephVersion:
-    image: quay.io/ceph/ceph:v16.2.6
-    allowUnsupported: false
+spec: 
 
   dataDirHostPath: /var/lib/rook
 
