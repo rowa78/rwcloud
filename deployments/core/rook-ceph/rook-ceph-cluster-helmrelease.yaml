@@ -32,8 +32,8 @@ spec:
           name: rook.${SECRET_DOMAIN}
           path: "/ceph-dashboard(/|$)(.*)"
         tls:
-          hosts: 
-            - rook.${SECRET_DOMAIN}
+        - hosts: 
+          - rook.${SECRET_DOMAIN}
 
     cephBlockPools: {}
     cephFileSystems: {}
