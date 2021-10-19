@@ -8,4 +8,5 @@ resources:
   - longhorn-system.yaml
   - snapshot-controller.yaml
   - minio.yaml
-  - thanos.yaml
+  - monitoring.yaml
+  
