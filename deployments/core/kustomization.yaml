@@ -7,4 +7,5 @@ resources:
   - ingress-nginx
   - wildcard-certificate
   - rancher
+  - longhorn
   
