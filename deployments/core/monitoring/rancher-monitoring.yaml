@@ -17,11 +17,3 @@ spec:
       interval: 5m
   dependsOn:
     - name: rancher-monitoring-crd
-  values:
-    prometheus:  
-      prometheusSpec:    
-        remoteWrite: 
-          url: http://thanos-receive.thanos.svc.cluster.local:19291/ap/v1/receive
-          remoteTimeout: 30s
-          name: rwcloud
-      
