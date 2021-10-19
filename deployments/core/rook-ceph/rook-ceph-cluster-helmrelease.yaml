@@ -35,7 +35,19 @@ spec:
         - hosts: 
           - rook.${SECRET_DOMAIN}
 
-    cephBlockPools: {}
+    cephBlockPools:
+      - name: ceph-blockpool
+      # see https://github.com/rook/rook/blob/master/Documentation/ceph-pool-crd.md#spec for available configuration
+      spec:
+        failureDomain: host
+        replicated:
+          size: 3
+      storageClass:
+        enabled: true
+        name: ceph-block
+        isDefault: true
+        reclaimPolicy: Delete
+        allowVolumeExpansion: true
     cephFileSystems:
       - name: ceph-filesystem
       # see https://github.com/rook/rook/blob/master/Documentation/ceph-filesystem-crd.md#filesystem-settings for available configuration
