@@ -40,7 +40,7 @@ spec:
       log:
         mode: console
 
-    adminUser: admin
+    adminUser: "${SECRET_GRAFANA_ADMIN_USER}"
     adminPassword: "${SECRET_GRAFANA_ADMIN_PASSWORD}"
 
     ingress:
