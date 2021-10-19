@@ -8,4 +8,5 @@ resources:
   - wildcard-certificate
   - rancher
   - longhorn
+  - snapshot-controller
   
