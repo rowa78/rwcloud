@@ -4,8 +4,7 @@ kind: Kustomization
 resources:
   - cert-manager.yaml
   - ingress-nginx.yaml  
-  - cattle-system.yaml
-  - cattle-monitoring-system.yaml
+  - cattle-system.yaml  
   - longhorn-system.yaml
   - snapshot-controller.yaml
   - minio.yaml
