@@ -3,4 +3,6 @@ kind: Kustomization
 resources:
   - minio-secrets.yaml
   - helm-release-longhorn.yaml
+  - longhorn-storageclass-no-backup.yaml
+  - longhorn-storageclass.yaml
 
