@@ -10,4 +10,5 @@ resources:
   - longhorn
   - snapshot-controller
   - minio-operator
+  - thanos
   
