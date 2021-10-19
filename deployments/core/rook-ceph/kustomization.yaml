@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   #- rbac.yaml
   #- reflector
-  - rook-ceph-operator-helmrelease.yaml
+  #- rook-ceph-operator-helmrelease.yaml
   #- rook-ceph-cluster-helmrelease.yaml  
   #- service-monitors
   #- snapshot-controller
