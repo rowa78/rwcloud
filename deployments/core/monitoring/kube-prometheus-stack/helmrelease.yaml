@@ -21,7 +21,7 @@ spec:
     fullnameOverride: prometheus
     alertmanager:              
       ingress:
-        enabled: true
+        enabled: false
         pathType: Prefix                
         hosts:
         - "alert-manager.${SECRET_DOMAIN}"
@@ -94,7 +94,7 @@ spec:
 
     prometheus:
       ingress:
-        enabled: true
+        enabled: false
         pathType: Prefix
         hosts:
         - "prometheus.${SECRET_DOMAIN}"
