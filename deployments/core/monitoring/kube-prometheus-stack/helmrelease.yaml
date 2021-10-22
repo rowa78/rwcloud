@@ -120,7 +120,7 @@ spec:
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
-        retention: 30d
+        retention: 6h
         enableAdminAPI: true
         walCompression: true
         storageSpec:
@@ -129,7 +129,7 @@ spec:
               storageClassName: "longhorn-nobackup"
               resources:
                 requests:
-                  storage: 50Gi
+                  storage: 5Gi
 
       #  thanos:
       #    image: quay.io/thanos/thanos:v0.23.1
