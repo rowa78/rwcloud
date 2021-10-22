@@ -1,4 +1,4 @@
 wireguard_address: "10.0.0.11/24"
-wireguard_endpoint: "173.249.15.24"
+wireguard_endpoint: "161.97.177.245"
 
 rke2_type: server

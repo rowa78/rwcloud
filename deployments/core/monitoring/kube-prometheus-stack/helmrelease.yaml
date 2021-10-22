@@ -114,7 +114,7 @@ spec:
         enabled: true
 
       prometheusSpec:
-        replicas: 3
+        replicas: 1
         replicaExternalLabelName: "replica"
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
@@ -131,9 +131,9 @@ spec:
                 requests:
                   storage: 10Gi
 
-        thanos:
-          image: quay.io/thanos/thanos:v0.23.1
-          version: v0.21.1
-          objectStorageConfig:
-            name: thanos-objstore-secret
-            key: objstore.yml
+      #  thanos:
+      #    image: quay.io/thanos/thanos:v0.23.1
+      #    version: v0.21.1
+      #    objectStorageConfig:
+      #      name: thanos-objstore-secret
+      #      key: objstore.yml

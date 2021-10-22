@@ -25,6 +25,7 @@
     rke2_version: v1.21.5+rke2r2
     rke2_custom_manifests: manifests/
     rke2_token: ljkhfewiu32ni439
+    rke2_server_taint: true
     disable_ingress: true
   roles:     
      - ronnywalter.prepare_rke2

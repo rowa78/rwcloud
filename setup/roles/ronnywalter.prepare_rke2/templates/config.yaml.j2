@@ -9,6 +9,12 @@ advertise-address: {{ ansible_wg0.ipv4.address }}
 disable: rke2-ingress-nginx
 {% endif %}
 
+{% if rke2_server_taint %}
+node-taint:
+  - "CriticalAddonsOnly=true:NoExecute"
+{% endif %}
+
+
 tls-san:
   - cluster.local
   - 127.0.0.1
