@@ -2,14 +2,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: crds
+  name: namespaces
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: repositories
-    - name: namespaces
   interval: 10m0s
-  path: ./deployments/crds
+  path: ./deployments/namespaces
   prune: true
   sourceRef:
     kind: GitRepository
