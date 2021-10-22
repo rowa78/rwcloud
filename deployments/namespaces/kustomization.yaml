@@ -9,5 +9,5 @@ resources:
   - snapshot-controller.yaml
   - minio.yaml
   - monitoring.yaml
-  - logs.yaml
+  
   
