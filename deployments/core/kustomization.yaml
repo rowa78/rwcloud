@@ -9,6 +9,5 @@ resources:
   - longhorn
   - snapshot-controller
   - minio-operator
-  - monitoring
-  - logs
+  - monitoring  
   
