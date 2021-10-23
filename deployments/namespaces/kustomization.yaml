@@ -10,5 +10,6 @@ resources:
   - minio.yaml
   - monitoring.yaml
   - botkube.yaml
+  - velero.yaml
   
   
