@@ -48,8 +48,6 @@ spec:
       podAnnotations:
         backup.velero.io/backup-volumes: datadir
       extraEnv:
-        ENABLE_AUTOPAUSE: "TRUE"
-        AUTOPAUSE_TIMEOUT_EST: "600"
         ALLOW_CHEATS: true
       minecraftServer:
         eula: "TRUE"
