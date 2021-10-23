@@ -52,8 +52,8 @@ spec:
             notarySecretName: ""
         ingress:
           hosts:
-            core: core.harbor.${SECRET_DOMAIN}
-            notary: notary.harbor.${SECRET_DOMAIN}
+            core: harbor.${SECRET_DOMAIN}
+            notary: harbor-notary.${SECRET_DOMAIN}
           # set to the type of ingress controller if it has specific requirements.
           # leave as `default` for most ingress controllers.
           # set to `gce` if using the GCE ingress controller
