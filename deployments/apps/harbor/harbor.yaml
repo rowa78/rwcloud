@@ -140,7 +140,7 @@ spec:
       # in each components tls cert files need to provided in advance.
       internalTLS:
         # If internal TLS enabled
-        enabled: false
+        enabled: true
         # There are three ways to provide tls
         # 1) "auto" will generate cert automatically
         # 2) "manual" need provide cert file manually in following value
@@ -222,7 +222,7 @@ spec:
             storageClass: "longhorn-backup"
             subPath: ""
             accessMode: ReadWriteMany
-            size: 5Gi
+            size: 15Gi
           chartmuseum:
             existingClaim: ""
             storageClass: "longhorn-backup"
