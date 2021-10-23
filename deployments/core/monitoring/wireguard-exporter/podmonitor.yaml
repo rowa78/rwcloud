@@ -10,5 +10,8 @@ spec:
   selector:    
     matchLabels:
       app: 'wireguard-exporter'
-  podMetricsEndpoints:
-    - targetPort: http-metrics
+  podMetricsEndpoints:    
+    - interval: 30s
+      scrapeTimeout: 30s
+      port: http-metrics
+      path: /metrics
