@@ -35,8 +35,8 @@ spec:
         config:
           region: us-east-1
           s3ForcePathStyle: true
-          s3Url: http://diskstation:9000
-          publicUrl: https://minio.${SECRET_DOMAIN}
+          s3Url: ${MINIO_URL}
+          publicUrl: ${MINIO_URL}
       volumeSnapshotLocation:
         name: aws
         config:
