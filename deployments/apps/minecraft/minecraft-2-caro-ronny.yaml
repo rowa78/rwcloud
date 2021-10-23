@@ -18,7 +18,7 @@ spec:
         image: itzg/minecraft-server
         imageTag: 2021.21.0-java16
         persistence:
-          storageClass: "nfs-client"
+          storageClass: "longhorn-backup"
           dataDir:
             enabled: true
             Size: 10Gi
@@ -29,12 +29,12 @@ spec:
           limits:
             memory: 3048Mi
             cpu: 2000m
-        #livenessProbe:
-        #  initialDelaySeconds: 30
-        #  periodSeconds: 5
-        #  failureThreshold: 10
-        #  successThreshold: 1
-        #  timeoutSeconds: 1
+        livenessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          failureThreshold: 10
+          successThreshold: 1
+          timeoutSeconds: 1
         readinessProbe:
           initialDelaySeconds: 30
           periodSeconds: 5
