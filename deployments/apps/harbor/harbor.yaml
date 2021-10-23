@@ -35,7 +35,7 @@ spec:
           # The tls certificate can be generated manually or by cert manager
           # 3) none: configure no tls certificate for the ingress. If the default
           # tls certificate is configured in the ingress controller, choose this option
-          certSource: none
+          certSource: secret
           auto:
             # The common name used to generate the certificate, it's necessary
             # when the type isn't "ingress"
@@ -44,16 +44,16 @@ spec:
             # The name of secret which contains keys named:
             # "tls.crt" - the certificate
             # "tls.key" - the private key
-            secretName: ""
+            secretName: "harbor-${SECRET_DOMAIN/./-}-tls"
             # The name of secret which contains keys named:
             # "tls.crt" - the certificate
             # "tls.key" - the private key
             # Only needed when the "expose.type" is "ingress".
-            notarySecretName: ""
+            notarySecretName: "harbor-${SECRET_DOMAIN/./-}-tls"
         ingress:
           hosts:
-            core: harbor.${SECRET_DOMAIN}
-            notary: harbor-notary.${SECRET_DOMAIN}
+            core: core.harbor.${SECRET_DOMAIN}
+            notary: notary.harbor.${SECRET_DOMAIN}
           # set to the type of ingress controller if it has specific requirements.
           # leave as `default` for most ingress controllers.
           # set to `gce` if using the GCE ingress controller
