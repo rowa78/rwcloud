@@ -94,7 +94,7 @@ spec:
 
     prometheus:
       ingress:
-        enabled: false
+        enabled: true
         pathType: Prefix
         hosts:
         - "prometheus.${SECRET_DOMAIN}"
