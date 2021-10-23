@@ -18,9 +18,10 @@ spec:
       interval: 5m
   values:
     image:
-      repository: raspbernetes/botkube
-      tag: v0.12.1
-      pullPolicy: Always
+      registry: ghcr.io
+      repository: infracloudio/botkube      
+      tag: v0.12.3
+      pullPolicy: IfNotPresent
     serviceMonitor:
       enabled: true
     communications:
@@ -33,7 +34,7 @@ spec:
         notiftype: short                # Change notification type short/long you want to receive. notiftype is optional and Default notification type is short (if not specified)
     config:
       settings:
-        clustername: pi-cluster
+        clustername: rwcloud
         kubectl:
           enabled: true
       resources:
