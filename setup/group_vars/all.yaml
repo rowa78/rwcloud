@@ -6,8 +6,9 @@ ufw_rules:
   - { port: 80, rule: allow }
   - { port: 443, rule: allow }
 #  - { port: 6443, rule: allow }
-#  - { port: 11111, rule: allow }
-#  - { port: 11112, rule: allow }
+  - { port: 11111, rule: allow }
+  - { port: 11112, rule: allow }
+  - { port: 11113, rule: allow }
   - { port: 51820, rule: allow, proto: udp }
 #  - { from_ip: 10.0.0.0/24, rule: allow}
   - { direction: in, interface: wg0, rule: allow}
