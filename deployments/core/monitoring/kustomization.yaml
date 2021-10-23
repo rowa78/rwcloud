@@ -6,3 +6,4 @@ resources:
   - kube-prometheus-stack
   - loki
   - grafana
+  - flux-podmonitor.yaml
