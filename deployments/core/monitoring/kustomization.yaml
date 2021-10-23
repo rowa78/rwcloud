@@ -7,4 +7,4 @@ resources:
   - loki
   - grafana
   - flux-podmonitor.yaml
-  - wireguard-exporter
+  #- wireguard-exporter
