@@ -5,3 +5,4 @@ resources:
   - minecraft-1-caro-sofia.yaml
   - minecraft-2-caro-ronny.yaml
   - minecraft-3-caro-maxi.yaml
+  - velero-schedule.yaml
