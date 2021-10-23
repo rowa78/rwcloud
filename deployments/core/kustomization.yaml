@@ -9,6 +9,6 @@ resources:
   - longhorn
   - snapshot-controller
   - minio-operator
-  - monitoring
+  #- monitoring
   - botkube  
   
