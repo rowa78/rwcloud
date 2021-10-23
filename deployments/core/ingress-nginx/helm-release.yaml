@@ -32,3 +32,5 @@ spec:
     
     tcp: 
       "11113": "minecraft/minecraft-caro-sofia-minecraft:25565"
+      "11112": "minecraft/minecraft-caro-ronny-minecraft:25565"
+      "11111": "minecraft/minecraft-caro-maxi-minecraft:25565"

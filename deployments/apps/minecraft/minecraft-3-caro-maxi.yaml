@@ -16,7 +16,7 @@ spec:
                 namespace: flux-system
     values:
         image: itzg/minecraft-server
-        imageTag: 2021.20.0-multiarch-latest
+        imageTag: 2021.21.0-java16
         persistence:
           storageClass: "nfs-client"
           dataDir:
@@ -59,14 +59,13 @@ spec:
           memory: 2812M
           difficulty: normal
           maxTickTime: -1
-          serviceType: LoadBalancer
+          serviceType: ClusterIP
           gameMode: creative
           motd: "Caro + Maxi"
           maxPlayers: 3
           whitelist: atlan78,carofox,Maxi_Destrukto
           ops: Atlan78,carofox
-          icon: https://www.freeiconspng.com/uploads/minecraft-server-icon-13.png
-          loadBalancerIP: ${MINECRAFT_3_LB}
+          icon: https://www.freeiconspng.com/uploads/minecraft-server-icon-13.png          
           rcon:
             enabled: false
             port: 25575
