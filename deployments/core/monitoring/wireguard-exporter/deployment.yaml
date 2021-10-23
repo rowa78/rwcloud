@@ -1,0 +1,48 @@
+# wireguard_exporter.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wireguard-exporter
+  namespace: monitoring
+  labels:
+    app: wireguard-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wireguard-exporter
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: wireguard-exporter
+    spec:      
+      hostNetwork: true
+      containers:
+      - name: wireguard-exporter
+        image: yangchuansheng/wireguard_exporter
+        command: ["/usr/local/bin/prometheus_wireguard_exporter"]
+        args: ["-n", "/etc/wireguard/wg0.conf", "-r"]
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]
+        ports:
+        - containerPort: 9586
+          protocol: TCP
+          name: http-metrics
+        volumeMounts:        
+        - mountPath: /etc/localtime
+          name: localtime
+        - mountPath: /etc/wireguard
+          name: config
+      volumes:
+        - name: localtime
+          hostPath:
+            path: /etc/localtime
+        - name: config
+          hostPath:
+            path: /etc/wireguard

@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: wireguard
+  namespace: flux-system  
+spec:
+  namespaceSelector:
+    matchNames:
+      - monitoring
+  selector:    
+    matchLabels:
+      app: 'wireguard-exporter'
+  podMetricsEndpoints:
+    - targetPort: http-metrics
