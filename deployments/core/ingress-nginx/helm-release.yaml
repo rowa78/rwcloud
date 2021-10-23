@@ -29,6 +29,6 @@ spec:
       ingressClassResource:        
         default: true
       watchIngressWithoutClass: true
-      
+    
     tcp: 
-    11113: "minecraft/minecraft-caro-sofia-minecraft:25565"
+      "11113": "minecraft/minecraft-caro-sofia-minecraft:25565"
