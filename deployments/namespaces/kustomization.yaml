@@ -11,5 +11,6 @@ resources:
   - monitoring.yaml
   - botkube.yaml
   - velero.yaml
+  - minecraft.yaml
   
   
