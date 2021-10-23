@@ -85,9 +85,9 @@ spec:
         datasources:
         - name: Prometheus
           type: prometheus
+          url: http://prometheus-prometheus:9090
           access: proxy
-          url: http://thanos-query:9090/
-          isDefault: true
+          isDefault: true          
         - name: Loki
           type: loki
           access: proxy
