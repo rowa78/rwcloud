@@ -23,6 +23,8 @@ spec:
         # Set to false if you have configured CR already and/or you want to deploy an operator only
         enabled: false
 
+        namespace: jenkins
+
       # operator is section for configuring operator deployment
       operator:
         replicaCount: 1
