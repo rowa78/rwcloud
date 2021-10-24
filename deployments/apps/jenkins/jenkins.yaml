@@ -424,7 +424,7 @@ spec:
         updateStrategy: {}
 
         ingress:
-          enabled: false
+          enabled: true
           # Override for the default paths that map requests to the backend
           paths: []
           # - backend:
@@ -448,11 +448,10 @@ spec:
           # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
           # path: "/jenkins"
           # configures the hostname e.g. jenkins.example.com
-          hostName:
+          hostName: jenkins.${SECRET_DOMAIN}
           tls:
-          # - secretName: jenkins.cluster.local
-          #   hosts:
-          #     - jenkins.cluster.local
+            - hosts:
+              - jenkins.${SECRET_DOMAIN}
 
         # often you want to have your controller all locked down and private
         # but you still want to get webhooks from your SCM
