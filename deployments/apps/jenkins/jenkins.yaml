@@ -47,6 +47,7 @@ spec:
           - workflow-aggregator:2.6
           - git:4.9.0
           - configuration-as-code:1.53
+          - prometheus:2.0.10
 
         ingress:
           enabled: true
@@ -82,7 +83,7 @@ spec:
         prometheus:
           # If enabled, add the prometheus plugin to the list of plugins to install
           # https://plugins.jenkins.io/prometheus
-          enabled: false
+          enabled: true
           # Additional labels to add to the ServiceMonitor object
           serviceMonitorAdditionalLabels: {}
           # Set a custom namespace where to deploy ServiceMonitor resource
