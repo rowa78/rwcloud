@@ -14,5 +14,6 @@ resources:
   - minecraft.yaml
   - harbor.yaml
   - nexus.yaml
+  - jenkins.yaml
   
   

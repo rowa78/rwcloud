@@ -1,0 +1,49 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+    name: jenkins
+    namespace: jenkins
+spec:
+    interval: 5m
+    chart:
+      spec:
+        # renovate: registryUrl=https://itzg.github.io/minecraft-server-charts/
+        chart: jenkins-operator
+        version: 0.5.3
+        sourceRef:
+          kind: HelmRepository
+          name: jenkins-operator-charts
+          namespace: flux-system
+    values:      
+      # Jenkins Operator Helm chart
+
+      # Jenkins instance configuration
+      jenkins:
+        # enabled can enable or disable the Jenkins instance
+        # Set to false if you have configured CR already and/or you want to deploy an operator only
+        enabled: false
+
+      # operator is section for configuring operator deployment
+      operator:
+        replicaCount: 1
+
+        # image is the name (and tag) of the Jenkins Operator image
+        image: virtuslab/jenkins-operator:v0.6.0
+
+        # imagePullPolicy defines policy for pulling images
+        imagePullPolicy: IfNotPresent
+
+        # imagePullSecrets is used if you want to pull images from private repository
+        imagePullSecrets: []
+
+        # nameOverride overrides the app name
+        nameOverride: ""
+
+        # fullnameOverride overrides the deployment name
+        fullnameOverride: ""
+
+        resources: {}
+        nodeSelector: {}
+        tolerations: []
+        affinity: {}
+
