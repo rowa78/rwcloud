@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-    name: jenkins
+    name: jenkins-operator
     namespace: jenkins
 spec:
     interval: 5m
