@@ -13,5 +13,6 @@ resources:
   - velero.yaml
   - minecraft.yaml
   - harbor.yaml
+  - nexus.yaml
   
   
