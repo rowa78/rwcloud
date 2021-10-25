@@ -203,15 +203,20 @@ spec:
       postgresqlUsername: "authentik"
       postgresqlPassword: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
       postgresqlDatabase: "authentik"
-      # persistence:
-      #   enabled: true
-      #   storageClass:
-      #   accessModes:
-      #     - ReadWriteOnce
+      persistence:
+        enabled: true
+        storageClass: "longhorn-backup"
+        accessModes:
+          - ReadWriteOnce
     redis:
       # -- enable the bundled bitnami redis chart
       enabled: true
       architecture: standalone
       auth:
         enabled: false
+      persistence:
+        enabled: true
+        storageClass: "longhorn-backup"
+        accessModes:
+          - ReadWriteOnce
 
