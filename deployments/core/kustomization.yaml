@@ -13,3 +13,4 @@ resources:
   - botkube  
   - velero
   - external-dns
+  - authentik

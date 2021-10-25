@@ -16,5 +16,5 @@ resources:
   - nexus.yaml
   - jenkins.yaml
   - external-dns.yaml
-  
+  - authentik.yaml
   
