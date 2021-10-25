@@ -22,7 +22,11 @@ spec:
     alertmanager:              
       ingress:
         enabled: false
-        pathType: Prefix                
+        pathType: Prefix
+        annotations:          
+          external-dns.alpha.kubernetes.io/hostname: "alert-manager.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/ttl: "120"
+          external-dns/is-public: "true"
         hosts:
         - "alert-manager.${SECRET_DOMAIN}"
         tls:
@@ -96,6 +100,10 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
+        annotations:          
+          external-dns.alpha.kubernetes.io/hostname: "prometheus.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/ttl: "120"
+          external-dns/is-public: "true"
         hosts:
         - "prometheus.${SECRET_DOMAIN}"
         tls:
