@@ -19,6 +19,10 @@ spec:
     replicas: 1
     hostname: "rancher.${SECRET_DOMAIN}"
     ingress:
+      extraAnnotations:
+        external-dns.alpha.kubernetes.io/hostname: "rancher.${SECRET_DOMAIN}"
+        external-dns.alpha.kubernetes.io/ttl: "120"
+        external-dns/is-public: "true"
       tls:
-        source: secret    
+        source: secret
     
