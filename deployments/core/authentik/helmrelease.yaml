@@ -208,7 +208,7 @@ spec:
       #     - ReadWriteOnce
     redis:
       # -- enable the bundled bitnami redis chart
-      enabled: false
+      enabled: true
       architecture: standalone
       auth:
         enabled: false
