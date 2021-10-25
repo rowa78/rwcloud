@@ -21,6 +21,7 @@ spec:
     tag: 0.10.1-debian-10-r0
     nameOverride: external-dns
     interval: "5m"
+    triggerLoopOnEvent: true
     logLevel: debug
     sources:
       - ingress
@@ -37,7 +38,6 @@ spec:
       create: false
       apiversion: externaldns.k8s.io/v1alpha1
       kind: DNSEndpoint
-    annotationFilter: "external-dns/is-public in (true)"
 
     resources:
       requests:
