@@ -15,5 +15,6 @@ resources:
   - harbor.yaml
   - nexus.yaml
   - jenkins.yaml
+  - external-dns.yaml
   
   
