@@ -12,3 +12,4 @@ resources:
   - monitoring
   - botkube  
   - velero
+  - external-dns
